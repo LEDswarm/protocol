@@ -16,7 +16,8 @@ pub fn decode(bytes: Vec<u8>) -> ProtocolResult<Command> {
         return Err(ProtocolError::UnexpectedLength);
     }
 
-    if &bytes[0 .. 5] != "ghoust".as_bytes() {
+    // Check for the signature "ghoust" ASCII string.
+    if std::str::from_utf8(&bytes[0 ..= 5]) != Ok("ghoust") {
         return Err(ProtocolError::NoSignatureFound);
     }
 
@@ -50,27 +51,5 @@ pub fn decode(bytes: Vec<u8>) -> ProtocolResult<Command> {
         },
 
         _ => Err(ProtocolError::InvalidCommandByte),
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn encode_connect() {
-        //let encoded = encode(Command::Request(Request::Connect));
-
-        assert_eq!(
-            true,
-            true,
-            //encoded,
-            // The first six bytes contain the ASCII string "ghoust".
-            /*vec![
-                103, 104, 111, 117, 115, 116,
-                1,
-                1,
-            ],*/
-        );
     }
 }
