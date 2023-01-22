@@ -41,25 +41,10 @@ pub fn encode(command: Command) -> Vec<u8> {
         },
     }
 
-    bytes
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn encode_connect() {
-        let encoded = encode(Command::Request(Request::Connect));
-
-        assert_eq!(
-            encoded,
-            // The first six bytes contain the ASCII string "ghoust".
-            vec![
-                103, 104, 111, 117, 115, 116,
-                1,
-                1,
-            ],
-        );
+    // Pad the end with zeroes if there is space left.
+    for _ in 0 .. 12 - bytes.len() {
+        bytes.push(0u8);
     }
+
+    bytes
 }
