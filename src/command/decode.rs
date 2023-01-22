@@ -49,7 +49,7 @@ pub fn decode(bytes: Vec<u8>) -> ProtocolResult<Command> {
             match &bytes[7] {
                 1 => Ok(Command::Response(Response::Ok)),
                 2 => Ok(Command::Response(Response::Err)),
-                3 => Ok(Command::Response(Response::Connected)),
+                3 => Ok(Command::Response(Response::Connected { id: bytes[8] })),
 
                 _ => Err(ProtocolError::InvalidCommandByte),
             }

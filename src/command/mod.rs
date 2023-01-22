@@ -29,7 +29,9 @@ pub enum Response {
     /// The given request has returned an error.
     Err,
     /// Sent by the host to signify a successful connection after a `Connect` request.
-    Connected,
+    Connected {
+        id: u8,
+    },
 }
 
 #[cfg(test)]

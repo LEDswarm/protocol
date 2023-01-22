@@ -36,7 +36,10 @@ pub fn encode(command: Command) -> Vec<u8> {
             match response {
                 Response::Ok        => bytes.push(1u8),
                 Response::Err       => bytes.push(2u8),
-                Response::Connected => bytes.push(3u8),
+                Response::Connected { id } => {
+                    bytes.push(3u8);
+                    bytes.push(id);
+                },
             }
         },
     }
