@@ -1,5 +1,6 @@
 pub type ProtocolResult<T> = Result<T, ProtocolError>;
 
+#[derive(Debug, PartialEq, Clone)]
 pub enum ProtocolError {
     /// The message does not start with a "ghoust" ASCII byte string.
     NoSignatureFound,
