@@ -9,6 +9,11 @@ use crate::types::{
     ProtocolError,
 };
 
+/// Try to assemble a `Command` instance from a sequence of bytes.
+///
+/// This function first checks if the sequence is long enough, and if the first six bytes are
+/// the signature ASCII string "ghoust". It then proceeds to read the actual commands using a
+/// simple bytecode-like encoding of the individual commands.
 pub fn decode(bytes: Vec<u8>) -> ProtocolResult<Command> {
     // Check that our message has the required length.
     // Ends will be padded with zeroes if the message happens to be shorter.
