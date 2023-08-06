@@ -1,4 +1,5 @@
 pub mod command;
+pub mod blink_code;
 pub mod types;
 
 pub fn add(left: usize, right: usize) -> usize {
