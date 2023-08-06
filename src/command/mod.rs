@@ -1,9 +1,3 @@
-mod encode;
-mod decode;
-
-pub use encode::encode;
-pub use decode::decode;
-
 #[derive(Debug, PartialEq, Clone)]
 pub enum Command {
     Request(Request),
@@ -11,15 +5,21 @@ pub enum Command {
 }
 
 #[derive(Debug, PartialEq, Clone)]
+pub enum GameMode {
+    LastOneStanding,
+    // Territory,
+}
+
+#[derive(Debug, PartialEq, Clone)]
 pub enum Request {
     /// Initiate a connection to the host.
     Connect,
-    /// Disconnect this controller if it is connected to the host.
+    /// Disconnect a controller from either side if the connection is currently active.
     Disconnect,
-    /// Sent by a controller to leave the current round since it has been moved too quickly.
-    TooMuchAcceleration,
-    /// Received by a controller when the base station sets the color.
-    SetColorRGBW(u8, u8, u8, u8),
+    /// Start a new round from the server side.
+    StartRound(GameMode),
+    /// Sent by a controller to exit the current round if a threshold is passed.
+    ExitRound,
 }
 
 #[derive(Debug, PartialEq, Clone)]
