@@ -31,6 +31,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- An enumeration of the program's possible requests and responses.
-- A light indicator system defining blink codes for various program states and errors.
+- Structures to represent the program's possible requests and responses using `Command`, `Request` and `Response`.
+- A light indicator system defining blink codes for various program states and errors based on the `BlinkCode`, `BlinkSequence` and `BlinkColor` structures.
 - Human-readable changelogs.
