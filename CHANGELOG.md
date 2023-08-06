@@ -32,5 +32,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - An enumeration of the program's possible requests and responses.
-- An light indicator system defining blink codes for various program states and errors.
+- A light indicator system defining blink codes for various program states and errors.
 - Human-readable changelogs.
