@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Structures to represent the program's possible requests and responses using `Command`, `Request` and `Response`.
-- A light indicator system defining blink codes for various program states and errors based on the `BlinkCode`, `BlinkSequence` and `BlinkColor` structures.
+- The `Command`, `Request` and `Response` structs were added to represent the messages which can
+be sent around a swarm network.
+- A light indicator system with blink codes for various program states based on the `BlinkCode`, `BlinkSequence` and `BlinkColor` structures.
 - Human-readable changelogs.
