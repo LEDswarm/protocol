@@ -42,12 +42,18 @@ impl BlinkSequence {
     pub fn from_code(code: BlinkCode) -> Self {
         let sequence = match code {
             BlinkCode::WaitingForConnection => vec![
-                BlinkColor::short((0, 0, 255, 0)),
+                BlinkColor::long((0, 0, 255, 0)),
                 BlinkColor::long((0, 0, 0, 0)),
             ],
 
             BlinkCode::Connected => vec![
-                BlinkColor::long((0, 255, 0, 0)),
+                BlinkColor::short((0, 255, 0, 0)),
+                BlinkColor::short((0, 0, 0, 0)),
+                BlinkColor::short((0, 255, 0, 0)),
+                BlinkColor::short((0, 0, 0, 0)),
+                BlinkColor::short((0, 255, 0, 0)),
+                BlinkColor::short((0, 0, 0, 0)),
+                BlinkColor::short((0, 0, 0, 0)),
                 BlinkColor::short((0, 0, 0, 0)),
             ],
         };
