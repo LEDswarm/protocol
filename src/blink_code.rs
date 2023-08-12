@@ -13,7 +13,7 @@ pub enum BlinkCode {
 #[derive(Debug, PartialEq, Clone)]
 pub struct BlinkSequence {
     pub sequence: Vec<BlinkColor>,
-    pub color: BlinkColor,index: usize,
+    pub index: usize,
 }
 
 impl BlinkSequence {
