@@ -4,7 +4,9 @@
 /// the events and states happening in the controller for debugging and user feedback.
 #[derive(Debug, PartialEq, Clone)]
 pub enum BlinkCode {
+    // A constant blue double flash indicating a pending Wi-Fi connection.
     WaitingForConnection,
+    // Blink green (each three times) to indicate a successful connection.
     Connected,
 }
 
@@ -22,7 +24,7 @@ impl BlinkSequence {
         }
     }
 
-    pub fn iterate_color(&mut self) -> (u8, u8, u8, u8) {
+    pub fn get_color(&mut self) -> (u8, u8, u8, u8) {
         let (r, g, b, w) = self.sequence[self.index].rgbw;
         self.advance();
 
